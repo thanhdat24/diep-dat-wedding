@@ -755,6 +755,7 @@ body {
   width: 160px !important;
   height: 160px !important;
   left: 130px !important;
+  top: 0px !important;
   filter: drop-shadow(0 10px 24px rgba(181, 96, 105, 0.22));
   animation: heartBeat 1.35s ease-in-out infinite;
   transform-origin: center;
@@ -1156,4 +1157,263 @@ body {
 
   color: #ffffff !important;
   text-align: left !important;
+}
+
+/* ==================================
+   LOI NHAN TRAI TIM - WEDDING
+   Khong sua trai tim goc IMAGE47
+================================== */
+
+/* 1. Dua loi goi y len gan trai tim */
+#IMAGE47 .dd-heart-hint {
+  position: absolute !important;
+  top: auto !important;
+  bottom: 0px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 10 !important;
+
+  padding: 5px 11px !important;
+  background: rgba(255, 249, 247, .96) !important;
+  border: 1px solid #E6C5BC !important;
+  border-radius: 30px !important;
+
+  color: #A46B61 !important;
+  font: 600 10px/1.4 Arial, sans-serif !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+  box-shadow: 0 3px 10px rgba(140,80,70,.09);
+  pointer-events: none;
+}
+
+/* 2. Nen phu popup */
+#dd-love-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483647 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 16px !important;
+  box-sizing: border-box !important;
+
+  background: rgba(54, 35, 39, .48) !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* 3. Khung popup */
+#dd-love-popup {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 375px !important;
+  max-height: calc(100dvh - 32px) !important;
+  overflow-y: auto !important;
+  box-sizing: border-box !important;
+
+  padding: 28px 24px 25px !important;
+
+  background: linear-gradient(
+    145deg, #FFFCFA, #FBF3EF
+  ) !important;
+
+  border: 1px solid #DEC0B6 !important;
+  border-radius: 20px !important;
+
+  box-shadow:
+    0 18px 48px rgba(62,35,39,.22) !important;
+
+  text-align: center !important;
+  animation: ddLoveAppear .35s ease-out;
+}
+
+/* Vien trang tri ben trong */
+#dd-love-popup::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(190,145,134,.18);
+  border-radius: 15px;
+  pointer-events: none;
+}
+
+/* 4. Nut dong thanh lich */
+#dd-love-close {
+  appearance: none !important;
+  position: absolute !important;
+  top: 12px !important;
+  right: 12px !important;
+
+  width: 28px !important;
+  height: 28px !important;
+  font-size: 18px !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: none !important;
+  border-radius: 50% !important;
+  background: #F5E8E2 !important;
+  box-shadow: none !important;
+
+  color: #9E7166 !important;
+  font: 22px/1 Arial, sans-serif !important;
+  cursor: pointer !important;
+}
+
+#dd-love-close:hover {
+  background: #ECD7CF !important;
+}
+
+#dd-love-close:focus:not(:focus-visible) {
+  outline: none !important;
+}
+
+#dd-love-close:focus-visible {
+  outline: 2px solid #A46B61 !important;
+  outline-offset: 2px;
+}
+
+/* 5. Bieu tuong trai tim popup */
+#dd-love-popup .dd-love-icon {
+  margin: 0 0 12px !important;
+  color: #B76D7C !important;
+  font-size: 34px !important;
+  line-height: 1 !important;
+}
+
+/* 6. Tieu de nho */
+#dd-love-popup .dd-love-eyebrow {
+  color: #B18378;
+  font: 600 10px/1.6 Arial, sans-serif;
+  letter-spacing: 1.7px;
+}
+
+/* 7. Ten co dau chu re */
+#dd-love-popup h2 {
+  margin: 12px 0 15px !important;
+  color: #99675D !important;
+
+  font-family: Georgia, serif !important;
+  font-size: 27px !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  line-height: 1.35 !important;
+}
+
+/* 8. Duong ke trai tim */
+#dd-love-popup .dd-love-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: #B76D7C;
+}
+
+#dd-love-popup .dd-love-divider::before,
+#dd-love-popup .dd-love-divider::after {
+  content: "";
+  width: 45px;
+  height: 1px;
+  background: #DDBFB5;
+}
+
+/* 9. Noi dung loi nhan */
+#dd-love-popup .dd-love-copy p {
+  margin: 0 0 12px !important;
+  color: #805F5A !important;
+
+  font: 14px/1.7 Arial, sans-serif !important;
+  text-align: center !important;
+}
+
+/* 10. Loi ket */
+#dd-love-popup .dd-love-end {
+  margin-top: 17px;
+  color: #99675D;
+  font: italic 14px/1.6 Georgia, serif;
+}
+
+/* 11. Ngay cuoi */
+#dd-love-popup .dd-love-date {
+  margin-top: 20px !important;
+  padding-top: 13px;
+  border-top: 1px solid #E8D4CC;
+
+  color: #99675D !important;
+  font: 600 12px Arial, sans-serif !important;
+  letter-spacing: 1px;
+}
+
+/* 12. Hieu ung popup */
+@keyframes ddLoveAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 13. Toi uu dien thoai */
+@media (max-width: 480px) {
+  #dd-love-popup {
+    padding: 27px 19px 22px !important;
+  }
+
+  #dd-love-popup h2 {
+    font-size: 24px !important;
+  }
+
+  #dd-love-popup .dd-love-copy p {
+    font-size: 13px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #dd-love-popup {
+    animation: none !important;
+  }
+}
+
+
+/* FIX HINH DANG TRAI TIM TREN IPHONE */
+/* Khong thay doi giao dien desktop */
+
+@media screen and (max-width: 767px) {
+
+  #IMAGE47::before {
+    /* Dung hinh vector thay cho font emoji */
+    content: "" !important;
+
+    position: absolute !important;
+    inset: auto !important;
+
+    top: 10% !important;
+    left: 7% !important;
+
+    width: 86% !important;
+    height: 80% !important;
+
+    display: block !important;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 180'%3E%3Cpath fill='%23B76D7C' d='M100 168 C86 157 11 114 10 64 C9 35 30 14 57 14 C78 14 92 25 100 39 C108 25 122 14 143 14 C170 14 191 35 190 64 C189 114 114 157 100 168Z'/%3E%3C/svg%3E") !important;
+
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+
+    color: transparent !important;
+    text-shadow: none !important;
+
+    pointer-events: none !important;
+  }
+
 }

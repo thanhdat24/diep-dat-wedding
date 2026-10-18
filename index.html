@@ -86,6 +86,132 @@
   <script src="js/responsive-v2.8.js?v=2.8.1" defer></script>
 </head>
 
+<script>
+(function () {
+  function initLoveHeart() {
+    const heart = document.getElementById("IMAGE47");
+
+    if (!heart || heart.dataset.loveReady === "1") {
+      return;
+    }
+
+    heart.dataset.loveReady = "1";
+
+    // Them chu, khong sua HTML trai tim goc
+    const hint = document.createElement("span");
+    hint.className = "dd-heart-hint";
+    hint.textContent = "♡ Chạm để mở lời nhắn ♡";
+    heart.appendChild(hint);
+
+    // Ho tro nhan chuot va ban phim
+    heart.setAttribute("role", "button");
+    heart.setAttribute("tabindex", "0");
+    heart.setAttribute(
+      "aria-label",
+      "Mở lời nhắn yêu thương"
+    );
+
+    function openLovePopup() {
+      if (document.getElementById("dd-love-overlay")) {
+        return;
+      }
+
+      const overlay = document.createElement("div");
+      overlay.id = "dd-love-overlay";
+
+      overlay.innerHTML = `
+        <div id="dd-love-popup"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="dd-love-title">
+
+    <button id="dd-love-close"
+            type="button"
+            aria-label="Đóng lời nhắn">×</button>
+
+    <div class="dd-love-icon">♥</div>
+
+    <div class="dd-love-eyebrow">
+      MỘT LỜI NHẮN DÀNH CHO BẠN
+    </div>
+
+    <h2 id="dd-love-title">
+      Thành Đạt & Ngọc Diệp
+    </h2>
+
+    <div class="dd-love-divider">♡</div>
+
+    <div class="dd-love-copy">
+      <p>
+        Giữa muôn vàn cuộc gặp gỡ, chúng mình đã may mắn tìm thấy nhau.
+      </p>
+
+      <p>
+        Cảm ơn bạn đã đón nhận lời mời của chúng mình. Hy vọng sẽ được cùng bạn lưu giữ những khoảnh khắc thật đẹp trong ngày hạnh phúc sắp tới.</p>
+    </div>
+
+    <div class="dd-love-end">
+      Sự hiện diện của bạn là món quà quý giá. ♡
+    </div>
+
+    <div class="dd-love-date">
+      17.11.2026
+    </div>
+
+  </div>
+      `;
+
+      const oldOverflow = document.body.style.overflow;
+
+      document.body.appendChild(overlay);
+      document.body.style.overflow = "hidden";
+
+      function closePopup() {
+        overlay.remove();
+        document.body.style.overflow = oldOverflow;
+        document.removeEventListener("keydown", onEscape);
+      }
+
+      function onEscape(e) {
+        if (e.key === "Escape") {
+          closePopup();
+        }
+      }
+
+      overlay.addEventListener("click", function(e) {
+        if (
+          e.target === overlay ||
+          e.target.closest("#dd-love-close")
+        ) {
+          closePopup();
+        }
+      });
+
+      document.addEventListener("keydown", onEscape);
+      overlay.querySelector("#dd-love-close").focus();
+    }
+
+    heart.addEventListener("click", openLovePopup);
+
+    heart.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openLovePopup();
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initLoveHeart
+    );
+  } else {
+    initLoveHeart();
+  }
+})();
+</script>
+
 <body class="lazyload">
   <div class="ladi-wraper">
     <div id="SECTION1" class='ladi-section'>
