@@ -88,7 +88,6 @@ window.WEDDING_CONFIG = {
       "assets/images/gallery-7.webp",
       "assets/images/gallery-8.webp",
       "assets/images/gallery-9.webp",
-      "assets/images/gallery-10.webp",
       "assets/images/gallery-11.webp",
       "assets/images/gallery-12.webp",
       "assets/images/gallery-13.webp",
