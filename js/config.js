@@ -21,7 +21,7 @@ window.WEDDING_CONFIG = {
 
   loveStoryTitle: "Chuyện tình",
   loveStory:
-    'Chẳng biết từ khi nào, những điều tình cờ đã trở thành quen thuộc, và một người xa lạ đã trở thành người thương. Sau 5 năm bên nhau, hôm nay chúng mình chọn nắm tay nhau bước vào một hành trình mới – <span class="story-highlight">hành trình mang tên gia đình</span>.',
+    'Chẳng biết từ khi nào, những điều tình cờ đã trở thành quen thuộc, và một người xa lạ đã trở thành người thương. Sau 6 năm bên nhau, hôm nay chúng mình chọn nắm tay nhau bước vào một hành trình mới – <span class="story-highlight">hành trình mang tên gia đình</span>.',
   invitation:
     "Chúng mình rất hân hạnh khi được đón bạn đến chung vui trong lễ vu quy của hai đứa.",
 
