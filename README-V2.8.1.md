@@ -33,9 +33,8 @@ Bộ này dành cho cấu trúc website cưới V2.7 hiện tại.
 
 ## Responsive
 
-- Điện thoại >= 420px: giữ thiết kế 420px và canh giữa.
-- Điện thoại < 420px: scale toàn trang theo chiều rộng màn hình.
-- Tablet / máy tính: giữ 420px 1:1 ở giữa, không phóng ảnh làm giảm chất lượng.
+- Màn hình rộng đến 500px (mọi iPhone dọc, từ iPhone 8 375px đến 16 Pro Max 440px): scale toàn trang vừa khít chiều rộng, không còn viền trắng hai bên.
+- Rộng hơn 500px (điện thoại xoay ngang, tablet, máy tính): giữ 420px 1:1 ở giữa, không phóng ảnh làm giảm chất lượng.
 - Khi xoay màn hình: tự tính lại scale.
 - Không dùng `window.ladi_viewport()`, tránh double-scale trong Messenger/Zalo.
 

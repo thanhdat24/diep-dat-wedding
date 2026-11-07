@@ -1189,7 +1189,11 @@ body {
 /* 2. Nen phu popup */
 #dd-love-overlay {
   position: fixed !important;
-  inset: 0 !important;
+  /* Không dùng inset: iOS dưới 14.5 chưa hỗ trợ */
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
   z-index: 2147483647 !important;
 
   display: flex !important;
@@ -1209,7 +1213,8 @@ body {
   position: relative !important;
   width: 100% !important;
   max-width: 375px !important;
-  max-height: calc(100dvh - 32px) !important;
+  /* 100% của overlay fixed: đúng vùng nhìn thấy, kể cả iOS chưa có dvh */
+  max-height: 100% !important;
   overflow-y: auto !important;
   box-sizing: border-box !important;
 

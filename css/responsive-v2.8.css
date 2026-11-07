@@ -15,14 +15,60 @@ body{
   width:100%;
   overflow:hidden;
 }
+/* --wedding-scale / --wedding-left do js/responsive-v2.8.js đặt trong <head>. */
 .ladi-wraper{
+  position:absolute;
+  top:0;
+  left:var(--wedding-left,0);
   width:420px!important;
   max-width:none!important;
   margin:0!important;
+  transform:scale(var(--wedding-scale,1));
   transform-origin:top left!important;
   backface-visibility:hidden;
   -webkit-backface-visibility:hidden;
 }
+
+/* Chuyện tình dài 8 dòng, nới section để ảnh của SECTION2 không che dòng cuối. */
+#SECTION1{
+  height:1086.6px;
+}
+
+/* Vùng chạm rộng hơn, không đổi kích thước hiển thị. */
+#dd-love-close::after{
+  content:"";
+  position:absolute;
+  top:-8px;
+  right:-8px;
+  bottom:-8px;
+  left:-8px;
+}
+#GALLERY2 .ladi-gallery-view-arrow::after{
+  content:"";
+  position:absolute;
+  top:-12px;
+  right:-12px;
+  bottom:-12px;
+  left:-12px;
+}
+
+/* Canvas co còn 89% trên iPhone 8, chữ dưới 11px sẽ quá nhỏ để đọc. */
+@media (max-width:500px){
+  .countdown-small{
+    font-size:11px;
+    letter-spacing:2px;
+  }
+  .countdown-label{
+    font-size:11px;
+  }
+  #IMAGE47 .dd-heart-hint{
+    font-size:12px!important;
+  }
+  #GROUP33 #HEADLINE95 h3::after{
+    font-size:11px!important;
+  }
+}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{
     animation-duration:.001ms!important;

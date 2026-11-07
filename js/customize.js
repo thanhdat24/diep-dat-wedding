@@ -370,6 +370,12 @@
     ).getUTCDay();
     const mondayFirstIndex = (jsFirstDay + 6) % 7;
 
+    /* Tháng 6 hàng (như 11/2026) sẽ tràn khỏi khung nâu nếu giữ giãn cách 5 hàng */
+    const rowCount = Math.ceil((mondayFirstIndex + daysInMonth) / 7);
+    const rowTop = function (row) {
+      return rowCount > 5 ? ROW_TOP[0] + row * 33 : ROW_TOP[row];
+    };
+
     DAY_IDS.forEach(function (id, index) {
       const wrapper = document.getElementById(id);
       const headline = q(id);
@@ -388,7 +394,7 @@
       const row = Math.floor(cell / 7);
       const col = cell % 7;
       wrapper.style.left = COL_LEFT[col] + "px";
-      wrapper.style.top = ROW_TOP[row] + "px";
+      wrapper.style.top = rowTop(row) + "px";
 
       const selected = dayNumber === info.day;
       headline.style.setProperty(
@@ -423,7 +429,7 @@
       /* Canh giữa tim trong ô ngày */
       const markerLeft = COL_LEFT[selectedCol] + 6.2;
 
-      const markerTop = ROW_TOP[selectedRow] - 6;
+      const markerTop = rowTop(selectedRow) - 6;
 
       marker.style.setProperty("left", markerLeft + "px", "important");
 

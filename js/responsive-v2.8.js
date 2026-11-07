@@ -1,11 +1,28 @@
+/*
+  Nạp đồng bộ trong <head> (không defer): tỉ lệ phải có trước lần vẽ đầu tiên,
+  nếu không trang sẽ hiện canvas 420px bị cắt rồi mới co lại.
+*/
 (function(){
   "use strict";
 
   var DESIGN_WIDTH=420;
+  /* iPhone dọc rộng nhất 440px, chiều ngang nhỏ nhất 667px. */
+  var PHONE_MAX_WIDTH=500;
+
+  var root=document.documentElement;
   var wrapper=null;
   var shell=null;
   var ro=null;
   var raf=0;
+
+  function applyScale(){
+    var vw=root.clientWidth||window.innerWidth||DESIGN_WIDTH;
+    var scale=vw<=PHONE_MAX_WIDTH?vw/DESIGN_WIDTH:1;
+
+    root.style.setProperty("--wedding-scale",String(scale));
+    root.style.setProperty("--wedding-left",(vw-DESIGN_WIDTH*scale)/2+"px");
+    return scale;
+  }
 
   function ensureShell(){
     wrapper=document.querySelector(".ladi-wraper");
@@ -24,19 +41,8 @@
   }
 
   function fit(){
+    var scale=applyScale();
     if(!wrapper||!shell)return;
-
-    var vw=document.documentElement.clientWidth||window.innerWidth||DESIGN_WIDTH;
-    var scale=Math.min(1,vw/DESIGN_WIDTH);
-    var rendered=DESIGN_WIDTH*scale;
-    var left=Math.max(0,(vw-rendered)/2);
-
-    wrapper.style.position="absolute";
-    wrapper.style.top="0";
-    wrapper.style.left=left+"px";
-    wrapper.style.width=DESIGN_WIDTH+"px";
-    wrapper.style.transformOrigin="top left";
-    wrapper.style.transform="scale("+scale+")";
 
     var h=wrapper.scrollHeight||wrapper.offsetHeight||0;
     shell.style.height=Math.ceil(h*scale)+"px";
@@ -64,6 +70,8 @@
     setTimeout(requestFit,250);
     setTimeout(requestFit,900);
   }
+
+  applyScale();
 
   if(document.readyState==="loading"){
     document.addEventListener("DOMContentLoaded",start,{once:true});
